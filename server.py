@@ -1,5 +1,7 @@
 import os
-import flask
+from flask import Flask
+from flask import request
+
 try:
   from SimpleHTTPServer import SimpleHTTPRequestHandler as Handler
   from SocketServer import TCPServer as Server
@@ -13,8 +15,11 @@ PORT = int(os.getenv('PORT', 8000))
 os.chdir('static')
 
 httpd = Server(("", PORT), Handler)
+
+
 try:
   print("Start pythonserving at port %i" % PORT)
+  
   httpd.serve_forever()
 except KeyboardInterrupt:
   pass
