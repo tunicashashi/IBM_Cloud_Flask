@@ -16,6 +16,12 @@ os.chdir('static')
 
 httpd = Server(("", PORT), Handler)
 
+app = Flask(__name__)
+
+@app.route("/")
+def hello():
+    return "Hello World! \n"
+
 
 try:
   print("Start pythonserving at port %i" % PORT)
@@ -25,3 +31,6 @@ except KeyboardInterrupt:
   pass
 httpd.server_close()
 
+if __name__ == '__main__':
+    app.run(debug=True)
+    #app.run(host="", debug=True)
