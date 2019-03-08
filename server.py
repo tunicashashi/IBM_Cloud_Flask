@@ -12,17 +12,17 @@ except ImportError:
 # Read port selected by the cloud for our application
 PORT = int(os.getenv('PORT', 8000))
 # Change current directory to avoid exposure of control files
-os.chdir('static')
+#os.chdir('static')
 
 # server http port 8000
-httpd = Server(("", PORT), Handler)
-try:
-  print("Start pythonserving at port %i" % PORT)
+#httpd = Server(("", PORT), Handler)
+#try:
+#  print("Start pythonserving at port %i" % PORT)
   
-  httpd.serve_forever()
-except KeyboardInterrupt:
-  pass
-httpd.server_close()
+#  httpd.serve_forever()
+#except KeyboardInterrupt:
+#  pass
+#httpd.server_close()
 
 # flask http port 
 app = Flask(__name__)
@@ -32,5 +32,5 @@ def hello():
     return "Hello World! ftom flask \n"
 
 if __name__ == '__main__':
-    app.run(debug=True, port=8080)
+    app.run(debug=True, port=PORT)
     #app.run(host="", debug=True)
