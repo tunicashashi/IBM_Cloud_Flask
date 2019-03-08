@@ -26,6 +26,7 @@ PORT = int(os.getenv('PORT', 8000))
 
 # flask http port 
 app = Flask(__name__)
+print ("port num", PORT)
 
 @app.route("/flask")
 def hello():
@@ -33,4 +34,5 @@ def hello():
 
 if __name__ == '__main__':
     app.run(debug=True, port=PORT)
+    
     #app.run(host="", debug=True)
