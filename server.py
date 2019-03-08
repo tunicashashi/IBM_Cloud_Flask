@@ -14,15 +14,8 @@ PORT = int(os.getenv('PORT', 8000))
 # Change current directory to avoid exposure of control files
 os.chdir('static')
 
+# server http port 8000
 httpd = Server(("", PORT), Handler)
-
-app = Flask(__name__)
-
-@app.route("/")
-def hello():
-    return "Hello World! \n"
-
-
 try:
   print("Start pythonserving at port %i" % PORT)
   
@@ -31,6 +24,13 @@ except KeyboardInterrupt:
   pass
 httpd.server_close()
 
+# flask http port 
+app = Flask(__name__)
+
+@app.route("/flask")
+def hello():
+    return "Hello World! ftom flask \n"
+
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, port=8080)
     #app.run(host="", debug=True)
